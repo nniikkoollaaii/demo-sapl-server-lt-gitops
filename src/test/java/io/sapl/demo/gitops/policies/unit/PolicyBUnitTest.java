@@ -27,13 +27,14 @@ public class PolicyBUnitTest {
 			
 	}
 	
-	@Test
-	void testSinglePolicyB_write() {
-
-		fixture.constructTestCase()
-			.when(AuthorizationSubscription.of("WILLI", "write", "foo"))
-			.expectPermit()
-			.verify();
-			
-	}
+    @Test
+    void testSinglePolicyB_write() {
+    
+       fixture.constructTestCase()
+           .when(AuthorizationSubscription.of("WILLI", "write", "foo"))
+           .expectDeny()
+           .verify();
+    
+    }
+    
 }
