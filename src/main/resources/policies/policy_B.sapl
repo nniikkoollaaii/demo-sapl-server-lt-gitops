@@ -1,5 +1,15 @@
-policy "policy_B"
+set "set_B"
+permit-unless-deny
+
+policy "policy_1"
 permit
-    resource == "foo"
+   resource == "foo"
 where
-    "WILLI" == subject;
+   "WILLI" == subject;
+
+policy "policy_2"
+deny
+   resource == "foo"
+where
+   action == "write";
+   "WILLI" == subject;
